@@ -1,49 +1,44 @@
 # Tuneleaf 🌿
 
-**A little Mac app for your Spotify listening.**
+**A small Mac player for your Spotify listening.**
 
-Tuneleaf is an early SwiftUI mini-player built for Apple Silicon. It uses [Spotify Soloist](https://developer.spotify.com/documentation/soloist) for native audio playback—no browser window needed.
+**Does it need a separate download? Yes, for now.** Tuneleaf currently relies on [Spotify Soloist](https://developer.spotify.com/documentation/soloist), a separate tool from Spotify that plays the music. You need to download it yourself and get an API key before Tuneleaf can work. This is a limitation of the current prototype, not the simple, ready-to-use experience I want for the app.
 
-> **Work in progress:** This is a prototype, not a full Spotify replacement. Real playback and resource usage still need testing with a Spotify account.
+## Why Tuneleaf?
 
-## What it can do
+I was using the Spotify app on my MacBook Air M2, but its RAM and CPU usage felt like a lot for a laptop with 8 GB of memory. I wanted a simpler, lighter-feeling way to listen to music on my Mac, so I started building Tuneleaf.
 
-- Start and stop a separately downloaded Spotify Soloist player.
-- Show the current track and offer play, pause, and skip controls.
-- Play a Spotify URI and connect to a running Soloist instance.
-- Store your personal Soloist API key in macOS Keychain.
+Tuneleaf is still an early prototype. Its resource usage and playback with a Spotify account haven't been fully tested, so there are no performance promises yet.
 
-Library browsing, search, artwork, and media keys are not available yet.
+## What it does
+
+From a small window, you can:
+
+- See the current track and artist.
+- Play, pause, or skip tracks.
+- Play a track, album, or playlist using its Spotify URI.
+
+You can also start and stop Soloist from Tuneleaf or connect to a copy that's already running. Library browsing, search, artwork, and media-key controls aren't available yet.
 
 ## What you'll need
 
 - An Apple Silicon Mac running macOS 13 or later.
-- Xcode or Swift 5.9 or later.
-- Spotify Premium and your own Spotify Soloist API key.
-- [Spotify Soloist](https://developer.spotify.com/documentation/soloist/tutorials/getting-started), downloaded and extracted from Spotify.
+- Spotify Premium and a personal Spotify Soloist API key.
+- Spotify Soloist, downloaded separately from Spotify.
 
-## Give it a spin
+Tuneleaf is a work in progress, and there isn't a ready-to-download app in this repository yet. You'll currently need to build it yourself. Soloist also expires after 90 days, so you'll need to download a fresh copy from Spotify when that happens.
 
-1. Follow Spotify's [setup guide](https://developer.spotify.com/documentation/soloist/tutorials/getting-started) to get your personal API key and download the Apple Silicon Soloist executable. Keep the key private.
-2. Build the Mac app from this folder:
+## Getting connected
 
-   ```sh
-   bash build-app.sh
-   ```
+Follow Spotify's [Soloist setup guide](https://developer.spotify.com/documentation/soloist/tutorials/getting-started) to get your API key and download Soloist. In Tuneleaf, choose the downloaded Soloist executable, enter your key, and select **Save Key**, then **Start Soloist**.
 
-3. Open `.build/Tuneleaf.app`. Choose the extracted Soloist executable, enter your key, and select **Save Key**.
-4. Select **Start Soloist**. The first time, select **Tuneleaf** in Spotify Connect on a Spotify app on the same network.
-5. Start listening through Spotify Connect, or paste a Spotify URI into Tuneleaf.
+The first time, select **Tuneleaf** in Spotify Connect on a Spotify app on the same network. After pairing, you can start listening through Spotify Connect or paste a Spotify URI into Tuneleaf.
 
-After pairing, Soloist plays on your Mac without the Spotify desktop app running. Spotify Soloist builds expire after 90 days; download a fresh build from Spotify when needed. Tuneleaf does not download or update it for you.
+## A note on your key
 
-## A note on privacy
+Tuneleaf saves your API key in macOS Keychain. Soloist needs the key to start, and other processes on your Mac may be able to see it while Soloist is running. **Forget** removes the saved key from Tuneleaf but doesn't revoke it at Spotify.
 
-Your key stays in macOS Keychain, but Soloist requires it as a startup argument, which other local processes may be able to see. **Forget** removes the saved key; it does not revoke the key at Spotify. The local Soloist control endpoint has no authentication, so use Tuneleaf only on a trusted Mac.
-
-## Development
-
-Run `swift test` to check the prototype. Spotify Soloist is distributed by Spotify and is not included in this repository. Before expanding or distributing the app, review [Spotify's developer policy](https://developer.spotify.com/policy) and [Soloist documentation](https://developer.spotify.com/documentation/soloist).
+Soloist's local control connection has no authentication, so use Tuneleaf only on a trusted Mac.
 
 ## Disclaimer
 
