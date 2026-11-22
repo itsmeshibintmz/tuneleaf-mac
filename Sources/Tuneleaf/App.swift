@@ -9,7 +9,12 @@ struct TuneleafApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PlayerView(player: player, soloist: soloist)
+            TabView {
+                LocalMusicView()
+                    .tabItem { Label("Local Music", systemImage: "music.note") }
+                PlayerView(player: player, soloist: soloist)
+                    .tabItem { Label("Spotify Prototype", systemImage: "waveform") }
+            }
                 .frame(minWidth: 480, minHeight: 490)
                 .onAppear { delegate.soloist = soloist }
         }

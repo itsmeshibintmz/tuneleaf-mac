@@ -1,8 +1,10 @@
 # Tuneleaf 🌿
 
-**A small Mac player for your Spotify listening.**
+**A small Mac music player.**
 
-**Does it need a separate download? Yes, for now.** Tuneleaf currently relies on [Spotify Soloist](https://developer.spotify.com/documentation/soloist), a separate tool from Spotify that plays the music. You need to download it yourself and get an API key before Tuneleaf can work. This is a limitation of the current prototype, not the simple, ready-to-use experience I want for the app.
+Tuneleaf can play an audio file already on your Mac without Spotify or a separate player. Choose **Local Music**, select a file, and use the play, pause, and stop controls. This is a basic player for one local file at a time; it does not play songs from your Spotify library.
+
+**For the separate Spotify prototype, a download is required.** It relies on [Spotify Soloist](https://developer.spotify.com/documentation/soloist), a separate tool from Spotify that plays the music. You need to download it yourself and get an API key before Spotify playback can work. This is a limitation of the current prototype, not the simple, ready-to-use experience I want for the app.
 
 ## Why Tuneleaf?
 
@@ -10,7 +12,7 @@ I was using the Spotify app on my MacBook Air M2, but its RAM and CPU usage felt
 
 Tuneleaf is still an early prototype. Its resource usage and playback with a Spotify account haven't been fully tested, so there are no performance promises yet.
 
-## What it does
+## Spotify prototype
 
 From a small window, you can:
 
@@ -20,7 +22,7 @@ From a small window, you can:
 
 You can also start and stop Soloist from Tuneleaf or connect to a copy that's already running. Library browsing, search, artwork, and media-key controls aren't available yet.
 
-## What you'll need
+## What you'll need for Spotify
 
 - An Apple Silicon Mac running macOS 13 or later.
 - Spotify Premium and a personal Spotify Soloist API key.
